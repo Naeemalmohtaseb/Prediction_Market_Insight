@@ -1,0 +1,1 @@
+"""Forecast report generation."""

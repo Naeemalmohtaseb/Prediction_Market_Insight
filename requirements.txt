@@ -1,0 +1,5 @@
+pydantic>=2.6
+pydantic-settings>=2.2
+requests>=2.32
+streamlit>=1.33
+pytest>=8.0
