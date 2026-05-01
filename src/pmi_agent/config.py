@@ -19,6 +19,10 @@ class AppConfig(BaseSettings):
         default="https://gamma-api.polymarket.com",
         description="Base URL reserved for a future Polymarket integration.",
     )
+    kalshi_base_url: str = Field(
+        default="https://api.elections.kalshi.com/trade-api/v2",
+        description="Base URL for Kalshi public read-only market data.",
+    )
     request_timeout_seconds: float = Field(default=10.0, ge=0.1)
     max_search_results: int = Field(default=20, ge=1, le=100)
     min_relevance_score: float = Field(default=0.15, ge=0.0, le=1.0)
@@ -42,6 +46,10 @@ def get_config() -> AppConfig:
         polymarket_base_url=os.getenv(
             "PMI_POLYMARKET_BASE_URL",
             "https://gamma-api.polymarket.com",
+        ),
+        kalshi_base_url=os.getenv(
+            "PMI_KALSHI_BASE_URL",
+            "https://api.elections.kalshi.com/trade-api/v2",
         ),
         request_timeout_seconds=float(os.getenv("PMI_REQUEST_TIMEOUT_SECONDS", "10")),
         max_search_results=int(os.getenv("PMI_MAX_SEARCH_RESULTS", "20")),

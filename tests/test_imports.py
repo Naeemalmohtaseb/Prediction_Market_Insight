@@ -9,6 +9,7 @@ def test_query_interpreter_returns_structured_question() -> None:
 
     assert interpreted.normalized_question
     assert interpreted.core_event
+    assert interpreted.target_event
 
 
 def test_probability_engine_normalizes_percentages() -> None:
